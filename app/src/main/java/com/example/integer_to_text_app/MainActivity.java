@@ -35,11 +35,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int number = Integer.parseInt(inputNumber.getText().toString().trim());
-                if (number < 0 || number > 999_999_999) {
-                    resultText.setText("Number must be between 0 and 999,999,999");
-                } else {
-                    resultText.setText(intToText(number));
-                }
+                resultText.setText(intToText(number));
             }
         });
     }
@@ -49,16 +45,7 @@ public class MainActivity extends AppCompatActivity {
             return "zero";
         }
 
-        if (number < 0) {
-            return "minus " + intToText(-1 * number);
-        }
-
         String words = "";
-
-        if ((number / 1000000000) > 0) {
-            words += intToText(number / 1000000000) + " billion ";
-            number %= 1000000000;
-        }
 
         if ((number / 1000000) > 0) {
             words += intToText(number / 1000000) + " million ";
